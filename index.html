@@ -2,16 +2,40 @@
 <html lang="cs">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Náhodná karta</title>
-  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      font-family: sans-serif;
+      text-align: center;
+      padding: 20px;
+    }
+    img {
+      max-width: 90%;
+      height: auto;
+      margin-top: 20px;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+    }
+  </style>
 </head>
 <body>
-  <h1>Náhodná karta</h1>
-  <button onclick="displayRandomCard()">Vyber kartu</button>
-  <div>
-    <img id="cardDisplay" src="" alt="Zde se zobrazí karta">
-  </div>
-  <script src="script.js"></script>
+  <h1>Vyber náhodnou kartu</h1>
+  <button onclick="zobrazNahodnouKartu()">Zobraz kartu</button>
+  <div id="karta"></div>
+
+  <script>
+    const karty = [
+      'images/Karta1.png',
+      'images/Karta2.png'
+    ];
+
+    function zobrazNahodnouKartu() {
+      const index = Math.floor(Math.random() * karty.length);
+      const vybranaKarta = karty[index];
+      document.getElementById('karta').innerHTML = `<img src="${vybranaKarta}" alt="Karta">`;
+    }
+  </script>
 </body>
 </html>
